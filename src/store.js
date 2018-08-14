@@ -1,12 +1,12 @@
 import { createStore, combineReducers } from 'redux'
 
-import counterReducer from './state/counter'
-import addReducer, { addAction } from './state/add'
+import counter, { incAction, decAction } from './state/counter'
+import add from './state/add'
 
 
 const reducer = combineReducers({
-    counter: counterReducer,
-    add: addReducer
+    counter,
+    add
 })
 
 const store = createStore(
@@ -14,8 +14,8 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 
-  store.dispatch(addAction(50))
-
+  window.counterInc = () => store.dispatch(incAction())
+  window.counterDec = () => store.dispatch(decAction())
 
 // window.counterInc = () => store.dispatch(incAction())
 // window.counterDec = () => store.dispatch(decAction())

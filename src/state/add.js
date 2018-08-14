@@ -6,7 +6,7 @@ export const addAction = (number) => ({
 })
 
 const initialState = {
-    number: 0
+    result: 0
 }
 
 export default (state = initialState, action) => {
@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
         case ADD:
             return {
                 ...state,
-                number: state.number + action.number
+                result: state.result + action.number
             }
         default:
             return state
