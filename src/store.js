@@ -15,3 +15,5 @@ store.dispatch(incAction())
 store.dispatch(incAction())
 store.dispatch(decAction())
 
+window.counterInc = () => store.dispatch(incAction())
+window.counterDec = () => store.dispatch(decAction())
