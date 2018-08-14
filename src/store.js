@@ -18,15 +18,20 @@ export const store = createStore(
 
 
 //automating testing
-store.dispatch(inputAction(6))
-if(store.getState().calculator.input !== 6){
-throw new Error ('Input not works!')
-}
-
-store.dispatch(inputAction(7))
-if(store.getState().calculator.input !== 67){
-throw new Error ('Input not works!')
-}
+const getDiplayedVal = () => {
+    const state = store.getState().calculator
+  
+    return state.isResultShown ? state.result : state.input
+  }
+  
+  store.dispatch(inputAction(6))
+  if (getDiplayedVal() !== 6) {
+    throw new Error('Input not works! Should be 6')
+  }
+  store.dispatch(inputAction(7))
+  if (getDiplayedVal() !== 67) {
+    throw new Error('Input not works! Should be 67')
+  }
 
 
 //functions for manual testing only
