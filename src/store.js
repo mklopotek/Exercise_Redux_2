@@ -32,6 +32,10 @@ const getDiplayedVal = () => {
   if (getDiplayedVal() !== 67) {
     throw new Error('Input not works! Should be 67')
   }
+  store.dispatch(inputAction(3))
+  if (getDiplayedVal() !== 673) {
+    throw new Error('Input not works! Should be 673')
+  }
 
 
 //functions for manual testing only

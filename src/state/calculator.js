@@ -19,9 +19,10 @@ export default (state = initialState, action) => {
         case INPUT:
         return {
             ...state, 
-            input: action.number,
+            input: state.input * 10 + action.number,
+            //the same as: parseInt(`${state.input}` + `${action.number}`),
+            // the same as: input: parseInt(String(state.input) + String(action.number))
             isResultShown: false
-
         }
         
         default:
