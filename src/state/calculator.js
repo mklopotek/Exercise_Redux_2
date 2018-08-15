@@ -4,6 +4,7 @@ const SUBSTRACT = 'calculator/SUBSTRACT'
 const MULTIPLICATION = 'calculator/MULTIPLICATION'
 const DIVISION = 'calculator/DIVISION'
 const RESULT = 'calculator/RESULT'
+const ALLCLEAR = 'calculator/ALLCLEAR'
 
 
 export const inputAction = (number) => ({
@@ -20,6 +21,8 @@ export const multiplicationAction = () => ({ type: MULTIPLICATION })
 export const divisionAction = () => ({ type: DIVISION })
 
 export const resultAction = () => ({ type: RESULT })
+
+export const allClrearAction = () => ({ type: ALLCLEAR })
 
 const initialState = {
     result: 0,
@@ -93,6 +96,10 @@ export default (state = initialState, action) => {
                 isResultShown: true,
                 lastOperation: initialState.lastOperation
             }
+        case ALLCLEAR:
+        return {
+            ...initialState
+        }
         default:
             return state
     }

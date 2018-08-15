@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { inputAction, addAction, substractAction, multiplicationAction, resultAction, divisionAction } from '../state/calculator';
+import { inputAction, addAction, substractAction, multiplicationAction, resultAction, divisionAction, allClrearAction } from '../state/calculator';
 
 const styles = {
     center: {
@@ -43,6 +43,9 @@ const Calculator = (props) => (
         <button onClick={props._divisionAction}>/</button>
         <button onClick={props._resultAction}>=</button>
     </div>
+    <div>
+        <button onClick={props._allClrearAction}>All Clear</button>
+    </div>
     </div>
 )
 
@@ -57,7 +60,8 @@ const mapDispatchToProps = dispatch => ({
     _substractAction: () => dispatch(substractAction()),
     _multiplicationAction: () => dispatch(multiplicationAction()),
     _resultAction: () => dispatch(resultAction()),
-    _divisionAction: () => dispatch(divisionAction())
+    _divisionAction: () => dispatch(divisionAction()),
+    _allClrearAction: () => dispatch(allClrearAction())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator)
