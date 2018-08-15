@@ -46,6 +46,14 @@ const calculateResult = currentState => {
     }
 }
 
+const generateStateAfterMathOperation = (state, actionType) => ({
+    ...state,
+    result: calculateResult(state),
+    input: 0,
+    isResultShown: true,
+    lastOperation: actionType,
+})
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case INPUT:
@@ -57,37 +65,13 @@ export default (state = initialState, action) => {
                 isResultShown: false
             }
         case ADD:
-            return {
-                ...state,
-                result: calculateResult(state),
-                input: 0,
-                isResultShown: true,
-                lastOperation: action.type,
-            }
+            return generateStateAfterMathOperation(state, action.type)
         case SUBSTRACT:
-            return {
-                ...state,
-                result: calculateResult(state),
-                input: 0,
-                isResultShown: true,
-                lastOperation: action.type
-            }
+            return generateStateAfterMathOperation(state, action.type)
         case MULTIPLICATION:
-            return {
-                ...state,
-                result: calculateResult(state),
-                input: 0,
-                isResultShown: true,
-                lastOperation: action.type
-            }
+            return generateStateAfterMathOperation(state, action.type)
         case DIVISION:
-            return {
-                ...state,
-                result: calculateResult(state),
-                input: 0,
-                isResultShown: true,
-                lastOperation: action.type
-            }
+            return generateStateAfterMathOperation(state, action.type)
         case RESULT:
             return {
                 ...state,
@@ -97,9 +81,9 @@ export default (state = initialState, action) => {
                 lastOperation: initialState.lastOperation
             }
         case ALLCLEAR:
-        return {
-            ...initialState
-        }
+            return {
+                ...initialState
+            }
         default:
             return state
     }
